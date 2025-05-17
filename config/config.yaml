@@ -1,0 +1,117 @@
+analytics:
+  idle_threshold_seconds: 300
+  unauthorized_alert_threshold: 60
+  update_interval: 1
+api:
+  debug: true
+  host: 0.0.0.0
+  port: 8081
+cameras:
+- fps: 30
+  id: cam1
+  resolution:
+  - 1280
+  - 720
+  source: 0
+- fps: 30
+  id: cam2
+  name: desk
+  resolution:
+  - 1280
+  - 720
+  source: http://192.168.154.43:4747/video
+  zone_type: desk
+- fps: 30
+  id: cam3
+  name: a
+  resolution:
+  - 1280
+  - 720
+  simulation_mode: true
+  source: http://192.168.154.43:4747/video
+  zone_type: desk
+- fps: 30
+  id: cam4
+  name: a
+  resolution:
+  - 1280
+  - 720
+  simulation_mode: true
+  source: http://192.168.154.43:4747/video
+  zone_type: desk
+- active: true
+  id: cam5
+  name: aaa
+  url: http://192.168.154.43:8080
+  zone_type: desk
+- active: true
+  id: cam6
+  name: aaaaa
+  url: http://192.168.154.43:8080
+  zone_type: desk
+database:
+  host: localhost
+  name: space_monitoring
+  password: ''
+  port: 5432
+  user: postgres
+detection:
+  confidence_threshold: 0.5
+  model: yolov8n.pt
+  tracking:
+    iou_threshold: 0.3
+    max_age: 30
+    min_hits: 3
+redis:
+  db: 0
+  host: localhost
+  port: 6379
+zones:
+  break_areas:
+  - coordinates:
+    - - 500
+      - 400
+    - - 700
+      - 400
+    - - 700
+      - 600
+    - - 500
+      - 600
+    name: BreakRoom
+    type: break
+  desks:
+  - coordinates:
+    - - 100
+      - 100
+    - - 300
+      - 100
+    - - 300
+      - 300
+    - - 100
+      - 300
+    name: Desk1
+    type: productive
+  - coordinates:
+    - - 400
+      - 100
+    - - 600
+      - 100
+    - - 600
+      - 300
+    - - 400
+      - 300
+    name: Desk2
+    type: productive
+  meeting_rooms:
+  - coordinates:
+    - - 100
+      - 400
+    - - 400
+      - 400
+    - - 400
+      - 600
+    - - 100
+      - 600
+    max_capacity: 6
+    name: MeetingRoom1
+    type: collaborative
